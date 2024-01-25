@@ -11,8 +11,7 @@ import asyncio
 import os
 from keepAlive import keep_alive
 
-bot.change_presence(activity=discord.Game(name="todos dicen zamudio chinga tu madre
-pero nadie dice zamudio eres la verga gracias por hacer un bot de yews"))
+bot.change_presence(activity=discord.Game(name="todos dicen zamudio chinga tu madre, pero nadie dice zamudio eres la verga gracias por hacer un bot de yews"))
 
 generated_urls = []
 
