@@ -99,5 +99,4 @@ async def on_ready():
 
 keep_alive()
 
-token = os.environ['TOKEN']
 client.run(token)
