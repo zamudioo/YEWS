@@ -8,6 +8,11 @@ from bs4 import BeautifulSoup
 import datetime
 import pytz
 import asyncio
+import os
+from keep_alive import keep_alive
+keep_alive()
+
+bot = Bot(token=os.environ.get('token'))
 
 generated_urls = []
 
