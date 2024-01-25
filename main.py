@@ -9,10 +9,7 @@ import datetime
 import pytz
 import asyncio
 import os
-from keep_alive import keep_alive
-keep_alive()
-
-bot = Bot(token=os.environ.get('token'))
+from keepAlive import keep_alive
 
 generated_urls = []
 
@@ -95,7 +92,12 @@ async def today(ctx):
 @bot.event
 async def on_ready():
     print(f'Conectado como {bot.user.name}')
+
+    
     generate_url_task.start()
     capture_screenshot.start()
 
-bot.run(TOKEN)
+keep_alive()
+
+token = os.environ['TOKEN']
+client.run(token)
