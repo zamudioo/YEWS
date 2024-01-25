@@ -99,5 +99,5 @@ async def on_ready():
 
 keep_alive()
 
-client.run(MTE5OTA3ODEzMjM4OTUxNTM3NA.GBFLFO.Se9gouVx-0u523Lb9G9G6r2x_lbE5ABZ-9PYog)
+client.run("MTE5OTA3ODEzMjM4OTUxNTM3NA.GBFLFO.Se9gouVx-0u523Lb9G9G6r2x_lbE5ABZ-9PYog")
  
