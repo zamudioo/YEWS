@@ -14,7 +14,7 @@ from keepAlive import keep_alive
 generated_urls = []
 
 # Configuración del bot Discord
-token = MTE5OTA3ODEzMjM4OTUxNTM3NA.GBFLFO.Se9gouVx-0u523Lb9G9G6r2x_lbE5ABZ-9PYog
+token = "MTE5OTA3ODEzMjM4OTUxNTM3NA.GBFLFO.Se9gouVx-0u523Lb9G9G6r2x_lbE5ABZ-9PYog"
 CHANNEL_ID = 1195004269363990578
 target_role_id = 1194868944213913681
 intents = discord.Intents.default()
@@ -100,5 +100,5 @@ async def on_ready():
 
 keep_alive()
 
-bot.run("token")
+bot.run(token)
  
