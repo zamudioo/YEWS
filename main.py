@@ -93,9 +93,9 @@ async def capture_and_send_screenshot():
 async def generate_url_task():
     await generar_url()
 
-@tasks.loop(hours=5)
+@tasks.loop(minutes=1)
 async def capture_screenshot():
-    await capture_and_send_screenshot()
+    await schedule_messages()
 
 @bot.command(name='today')
 async def today(ctx):
