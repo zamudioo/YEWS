@@ -89,7 +89,10 @@ async def capture_and_send_screenshot():
     else:
         print(f"Canal con ID: {CHANNEL_ID} o el rol con ID: {target_role_id} no fue encontrado.")
 
-@tasks.loop(hours=5)
+async def schedule_messages():
+    generate_url_task.stop()
+    
+@tasks.loop(hours=1)
 async def generate_url_task():
     await generar_url()
 
