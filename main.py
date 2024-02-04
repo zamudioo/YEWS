@@ -1,4 +1,3 @@
-User
 import discord
 from discord.ext import tasks, commands
 from selenium import webdriver
