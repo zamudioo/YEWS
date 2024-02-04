@@ -1,3 +1,4 @@
+User
 import discord
 from discord.ext import tasks, commands
 from selenium import webdriver
@@ -34,21 +35,6 @@ mobile_emulation = {
 chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
 driver = webdriver.Chrome(options=chrome_options)
-#horarios
-async def schedule_messages():
-    while True:
-        now = datetime.datetime.now(pytz.timezone('America/Los_Angeles'))
-
-        # Define los horarios específicos
-        scheduled_hours = [10, 15, 20]
-
-        if now.hour in scheduled_hours and now.minute == 0 and now.second == 0:
-            url_to_send = generated_urls.pop(0) if generated_urls else None
-
-            if url_to_send:
-                await capture_and_send_screenshot(url_to_send)
-
-        await asyncio.sleep(60)  # Espera un minuto antes de volver a verificar
 # Función para generar la URL
 async def generar_url():
     now = datetime.datetime.now(pytz.timezone('America/Los_Angeles'))
@@ -89,16 +75,13 @@ async def capture_and_send_screenshot():
     else:
         print(f"Canal con ID: {CHANNEL_ID} o el rol con ID: {target_role_id} no fue encontrado.")
 
-async def schedule_messages():
-    generate_url_task.stop()
-    
-@tasks.loop(hours=1)
+@tasks.loop(hours=5)
 async def generate_url_task():
     await generar_url()
 
-@tasks.loop(minutes=1)
+@tasks.loop(hours=5)
 async def capture_screenshot():
-    await schedule_messages()
+    await capture_and_send_screenshot()
 
 @bot.command(name='today')
 async def today(ctx):
@@ -119,4 +102,3 @@ async def on_ready():
 keep_alive()
 
 bot.run(token)
- 
