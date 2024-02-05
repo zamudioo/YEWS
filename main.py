@@ -94,7 +94,7 @@ async def today(ctx):
 async def on_ready():
     print(f'Conectado como {bot.user.name}')
 
-    @tasks.loop(hours=1)
+@tasks.loop(hours=1)
 async def scheduled_messages():
     now = datetime.datetime.now(pytz.timezone('America/Los_Angeles'))
 
