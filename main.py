@@ -94,9 +94,21 @@ async def today(ctx):
 async def on_ready():
     print(f'Conectado como {bot.user.name}')
 
-    
+    @tasks.loop(hours=1)
+async def scheduled_messages():
+    now = datetime.datetime.now(pytz.timezone('America/Los_Angeles'))
+
+    # Check if the current time is 10 am, 3 pm, or 10 pm
+    if now.hour in [10, 15, 22]:
+        await capture_and_send_screenshot()
+
+@bot.event
+async def on_ready():
+    print(f'Conectado como {bot.user.name}')
+
     generate_url_task.start()
     capture_screenshot.start()
+    scheduled_messages.start()
 
 keep_alive()
 
