@@ -46,7 +46,7 @@ async def generar_url():
       now = now.replace(hour=20, minute=0, second=0)
 
 
-    formatted_date = now.strftime('%m-%d').lstrip('0')
+    formatted_date = now.strftime('%m-%d').lstrip('0').replace(' 0', ' ')
     formatted_hour = now.strftime('%I%p').lower().lstrip('0')
 
     url = f'https://www.yews.news/edition/{formatted_date}-24-{formatted_hour}'
